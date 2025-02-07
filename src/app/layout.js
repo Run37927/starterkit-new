@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from '@/components/Navbar';
 import { Toaster } from "@/components/ui/sonner"
 import Providers from '@/components/Providers';
+import { cn, constructMetadata } from '@/lib/utils';
 
 // To add more fonts, go to https://fonts.google.com/variablefonts
 const mulish = Mulish({

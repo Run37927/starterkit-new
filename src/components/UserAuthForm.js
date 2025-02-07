@@ -1,25 +1,25 @@
 'use client'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { signIn } from 'next-auth/react';
-import { Icons } from './ui/Icons';
-import { useToast } from './ui/use-toast';
+import { toast } from "sonner"
 import { Loader2 } from 'lucide-react';
+import { Icons } from './Icons';
 
 function UserAuthForm() {
     const [isGoogleLoading, setIsGoogleLoading] = useState(false);
-    const { toast } = useToast();
 
     const signInWithGoogle = async () => {
         setIsGoogleLoading(true);
 
         try {
             await signIn('google');
+            toast.success("You have been logged in successfully.", {
+                description: "Taking you back..."
+            });
         } catch (error) {
             console.log("signing in with google error: ", error)
-            toast({
-                variant: "destructive",
-                title: "Uh oh! Something went wrong.",
-                description: "There was a problem logging in with Google.",
+            toast.error("There was a problem logging in with Google.", {
+                description: "Please try again later.",
             });
         } finally {
             setIsGoogleLoading(false);

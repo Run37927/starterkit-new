@@ -17,14 +17,14 @@ async function Navbar() {
                         <span>MyProduct</span>
                     </Link>
 
-                    <div className="hidden md:flex items-center justify-center gap-10">
-                        <Link href='#pricing' className='font-semibold hover:underline hover:underline-offset-2'>
+                    <div className="hidden md:flex items-center justify-center gap-14">
+                        <Link href='#pricing' className='hover:underline hover:underline-offset-2'>
                             Pricing
                         </Link>
-                        <Link href='#demo' className='font-semibold hover:underline hover:underline-offset-2'>
+                        <Link href='#demo' className='hover:underline hover:underline-offset-2'>
                             Demo
                         </Link>
-                        <Link href='#faq' className='font-semibold hover:underline hover:underline-offset-2'>
+                        <Link href='#faq' className='hover:underline hover:underline-offset-2'>
                             Faq
                         </Link>
                     </div>
@@ -48,7 +48,7 @@ async function Navbar() {
                             ) : (
                                 <Link href='/sign-in' className={cn(buttonVariants({ size: "sm" }), "flex items-center justify-center group px-4 py-5")}>
                                     <span>Sign in</span>
-                                    <ArrowRight className='ml-1.5 transform h-4 w-4 transition-transform duration-300 group-hover:translate-x-1' />
+                                    <ArrowRight className='ml-1.5 transform size-4 transition-transform duration-300 group-hover:translate-x-1' />
                                 </Link>
                             )}
                         </>

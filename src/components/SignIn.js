@@ -1,7 +1,6 @@
-import React from 'react'
 import Link from 'next/link'
 import UserAuthForm from './UserAuthForm'
-import CloseModalButton from './ui/CloseModalButton'
+import CloseModalButton from './ui/close-modal-btn'
 
 function SignIn() {
     return (

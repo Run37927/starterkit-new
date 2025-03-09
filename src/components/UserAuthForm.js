@@ -13,8 +13,8 @@ function UserAuthForm() {
 
         try {
             await signIn('google');
-            toast.success("You have been logged in successfully.", {
-                description: "Taking you back..."
+            toast.success("Taking you there...", {
+                description: "Please wait..."
             });
         } catch (error) {
             console.log("signing in with google error: ", error)

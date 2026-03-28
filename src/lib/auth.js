@@ -2,9 +2,9 @@ import GoogleProvider from "next-auth/providers/google"
 import prisma from "./db"
 import { getServerSession } from "next-auth"
 import { PrismaAdapter } from "@auth/prisma-adapter"
-import sgMail from '@sendgrid/mail';
+import { Resend } from 'resend';
 
-sgMail.setApiKey(process.env.SENDGRID_APIKEY); // TODO: if you don't want to use sendgrid, resend is also installed in this repo
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 async function upsertUserAndAccount(account, profile) {
     const user = await prisma.user.upsert({
@@ -29,18 +29,22 @@ async function upsertUserAndAccount(account, profile) {
 
     //TODO: update email address and subject accordingly
     if (isNewUser) {
-        const messageToSelf = {
-            to: 'yourself@email.com',
-            from: 'yourself@email.com',
-            subject: 'A new user has signed in on YourCompany.',
-            html: `A user has signed in.<br><strong>Name</strong>: ${user.name}<br><strong>Email</strong>: ${user.email}`,
-        };
+        const emailBody = `
+        <p>A new user has signed in on Your Product.</p>
+        <p><strong>Name</strong>: ${user.name}</p>
+        <p><strong>Email</strong>: ${user.email}</p>
+        `
 
         try {
-            await sgMail.send(messageToSelf);
-            console.log('New signup notification sent.');
+            await resend.emails.send({
+                from: 'hello@runbuilds.xyz',
+                to: ['hairunhuang@gmail.com'],
+                cc: ['bitebuddyhelp@gmail.com'],
+                subject: `[Your Product] New user`,
+                html: emailBody
+            })
         } catch (error) {
-            console.error('Error sending signup notification:', error);
+            console.error("Failed to send notification email:", error)
         }
     }
 
@@ -81,7 +85,12 @@ export const authOptions = {
         }),
     ],
     callbacks: {
-        async jwt({ token, user }) {
+        async jwt({ token, user, account }) {
+            if (account) {
+                // Store account info when user first signs in
+                token.accessToken = account.access_token
+                token.provider = account.provider
+            }
             if (user) {
                 // This runs when the user first signs in
                 token.id = user.id

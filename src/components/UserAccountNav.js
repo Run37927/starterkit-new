@@ -33,7 +33,7 @@ function UserAccountNav({ session }) {
                 className='min-w-[180px] bg-white shadow-xl border border-brand absolute top-8 right-0 z-50 rounded-xl pt-2'
             >
                 <div className='flex flex-col'>
-                    <div className='flex items-center border-b-[1px] px-4 pb-2'>
+                    <div className='flex items-center border-b px-4 pb-2'>
                         <div className='flex-1 min-w-0'>
                             <p className='text-sm font-semibold'>{session.user.name}</p>
                             <p className='text-xs text-ellipsis overflow-hidden'>{session.user.email}</p>
@@ -85,15 +85,14 @@ function UserAccountNav({ session }) {
             className='relative'
             onClick={toggleDropDownMenu}
         >
-            <div className="w-7 h-7 cursor-pointer rounded-full bg-gradient-to-r from-pink-300 via-purple-300 to-blue-300 mr-2"></div>
-            {/* <Image
+            <Image
                 width={28}
                 height={28}
                 className='w-full rounded-full hover:opacity-85 cursor-pointer'
                 src={session?.user?.image}
                 alt='profile pic'
                 referrerPolicy='no-referrer'
-            /> */}
+            />
             {showDropdown && showDropDownMenu()}
         </div>
     )

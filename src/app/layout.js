@@ -21,7 +21,7 @@ export const metadata = constructMetadata();
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className='!scroll-smooth'>
+    <html lang="en" className='scroll-smooth!'>
       <body className={cn('min-h-screen font-inter antialiased', inter.variable, nunito.variable)}>
         <NextTopLoader color="black" showSpinner={false} />
         <Providers>

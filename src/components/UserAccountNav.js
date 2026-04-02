@@ -38,7 +38,7 @@ function UserAccountNav({ session }) {
                             <p className='text-sm font-semibold'>{session.user.name}</p>
                             <p className='text-xs text-ellipsis overflow-hidden'>{session.user.email}</p>
                             {session.user.role === 'admin' ? (
-                                <p className='text-xs font-semibold rounded-md py-1 mt-1 text-green-800 bg-green-500 bg-opacity-20 max-w-12 text-center'>Admin</p>
+                                <p className='text-xs font-semibold rounded-md py-1 mt-1 text-green-800 bg-green-500/20 max-w-12 text-center'>Admin</p>
                             ) : null}
                         </div>
                     </div>

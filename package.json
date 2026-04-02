@@ -16,7 +16,6 @@
     "@radix-ui/react-label": "^2.1.8",
     "@radix-ui/react-popover": "^1.1.15",
     "@radix-ui/react-slot": "^1.2.4",
-    "@tailwindcss/typography": "^0.5.16",
     "@tanstack/react-query": "^5.95.2",
     "axios": "^1.14.0",
     "class-variance-authority": "^0.7.1",
@@ -35,13 +34,13 @@
     "sonner": "^2.0.7",
     "stripe": "^18.5.0",
     "tailwind-merge": "^3.5.0",
-    "tailwindcss-animate": "^1.0.7",
+    "tw-animate-css": "^1",
     "vaul": "^1.1.2",
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "postcss": "^8",
+    "@tailwindcss/postcss": "^4",
     "prisma": "^6.7.0",
-    "tailwindcss": "^3"
+    "tailwindcss": "^4"
   }
 }

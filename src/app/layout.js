@@ -9,12 +9,12 @@ import NextTopLoader from 'nextjs-toploader';
 // To add more fonts, go to https://fonts.google.com/variablefonts
 const inter = Inter({
   subsets: ['latin'],
-  variable: "--font-sans",
+  variable: "--font-inter",
 })
 
 const nunito = Nunito({
   subsets: ['latin'],
-  variable: "--font-heading",
+  variable: "--font-nunito",
 })
 
 export const metadata = constructMetadata();
@@ -22,7 +22,7 @@ export const metadata = constructMetadata();
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className='!scroll-smooth'>
-      <body className={cn('min-h-screen font-sans antialiased', inter.variable, nunito.variable)}>
+      <body className={cn('min-h-screen font-inter antialiased', inter.variable, nunito.variable)}>
         <NextTopLoader color="black" showSpinner={false} />
         <Providers>
           <Toaster />

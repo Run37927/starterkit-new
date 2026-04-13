@@ -1,10 +1,10 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { FeedbackPop } from "@/components/ui/feedback-pop";
-import { getAuthSession } from "@/lib/auth";
+import { auth } from "@/auth";
 import prisma from "@/lib/db";
 
 export default async function Home() {
-  const session = await getAuthSession();
+  const session = await auth();
 
   return (
     <MaxWidthWrapper className="mb-12 mt-8">

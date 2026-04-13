@@ -3,16 +3,19 @@ import { stripe } from "@/lib/stripe"
 import { headers } from "next/headers"
 
 export async function POST(req) {
+    if (!stripe) {
+        return new Response("Stripe not configured", { status: 503 })
+    }
+
     try {
-        const body = await req.text() // get the raw body to make sure its from stripe
+        const body = await req.text()
         const headersList = await headers();
-        const signature = headersList.get("stripe-signature") // get the stripe signature
+        const signature = headersList.get("stripe-signature")
 
         if (!signature) {
             return new Response("Invalid signature", { status: 400 })
         }
 
-        // verify its the stripe webhook
         const event = stripe.webhooks.constructEvent(body, signature, process.env.STRIPE_WEBHOOK_SECRET);
 
         if (event.type === "checkout.session.completed") {

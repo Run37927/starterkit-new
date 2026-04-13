@@ -3,11 +3,11 @@ import MaxWidthWrapper from "./MaxWidthWrapper"
 import { ArrowRight } from 'lucide-react'
 import { buttonVariants } from './ui/button'
 import { cn } from '@/lib/utils'
-import { getAuthSession } from '@/lib/auth'
+import { auth } from '@/auth'
 import UserAccountNav from './UserAccountNav'
 
 async function Navbar() {
-    const session = await getAuthSession();
+    const session = await auth();
 
     return (
         <nav className="sticky h-16 inset-x-0 top-0 z-30 w-full border-b border-gray-200 bg-white/75 backdrop-blur-sm transition-all">

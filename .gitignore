@@ -13,6 +13,9 @@
 # testing
 /coverage
 
+# prisma generated client
+/src/generated
+
 # next.js
 /.next/
 /out/

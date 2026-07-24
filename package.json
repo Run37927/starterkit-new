@@ -10,7 +10,7 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@auth/prisma-adapter": "^2.11.2",
+    "@auth/prisma-adapter": "^2.11.3",
     "@prisma/adapter-pg": "^7",
     "@prisma/client": "^7",
     "@radix-ui/react-dialog": "^1.1.15",

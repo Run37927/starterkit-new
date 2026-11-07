@@ -1,0 +1,18 @@
+---
+description: Never start a local server; the user does all runtime and browser testing
+alwaysApply: true
+---
+
+# Never Spin Up Localhost
+
+Never start a dev server, production server, or anything that listens on localhost in this project. The user always does runtime and browser testing themselves.
+
+Do not run:
+- `npm run dev`, `npm start`, `next dev`, `next start`, `npx next ...` servers
+- `prisma studio`, `stripe listen`, or any other local server or tunnel
+- `curl`/`fetch` against `localhost` or `127.0.0.1`
+- Browser automation against local URLs
+
+Allowed checks: `npm run build`, `npm run lint`, `npm ls`, `npm audit`, and reading the code.
+
+When a change needs runtime verification, finish the static checks, then tell the user what to test (which pages or flows) and let them run it.

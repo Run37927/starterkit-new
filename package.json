@@ -21,7 +21,7 @@
     "axios": "^1.21.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.38.0",
+    "framer-motion": "^14.10.1",
     "lucide-react": "^1.70.0",
     "next": "^16.4.5",
     "next-auth": "^5.0.0-beta.32",
@@ -33,7 +33,7 @@
     "react-icons": "^5.7.0",
     "resend": "^6.37.0",
     "sonner": "^2.0.8",
-    "stripe": "^22.1.1",
+    "stripe": "^23.1.0",
     "tailwind-merge": "^3.7.0",
     "tw-animate-css": "^1",
     "vaul": "^1.1.2",
@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "dotenv": "^17",
+    "dotenv": "^18",
     "prisma": "^7",
     "tsx": "^4",
     "tailwindcss": "^4"
